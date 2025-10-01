@@ -1,0 +1,12 @@
+<form [formGroup]="nameForm" (ngSubmit)="submitForm()">
+  <label for="firstName">First Name:</label>
+  <input id="firstName" type="text" formControlName="firstName" />
+
+  <label for="middleName">Middle Name:</label>
+  <input id="middleName" type="text" formControlName="middleName" />
+
+  <label for="lastName">Last Name:</label>
+  <input id="lastName" type="text" formControlName="lastName" />
+
+  <button type="submit">Submit</button>
+</form>
