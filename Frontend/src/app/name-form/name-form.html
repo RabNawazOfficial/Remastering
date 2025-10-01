@@ -1,12 +1,99 @@
-<form [formGroup]="nameForm" (ngSubmit)="submitForm()">
-  <label for="firstName">First Name:</label>
-  <input id="firstName" type="text" formControlName="firstName" />
+<h1 class="page-title">User Registration Form</h1>
+<form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
 
-  <label for="middleName">Middle Name:</label>
-  <input id="middleName" type="text" formControlName="middleName" />
+  <!-- Name Section -->
+  <div class="form-group">
+    <label for="fullName">Full Name:</label>
+    <input id="fullName" type="text" formControlName="fullName" />
+  </div>
 
-  <label for="lastName">Last Name:</label>
-  <input id="lastName" type="text" formControlName="lastName" />
+  <div class="form-group">
+    <label for="email">Email Address:</label>
+    <input id="email" type="email" formControlName="email" />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number:</label>
+    <input id="phone" type="number" formControlName="phone" />
+  </div>
+
+  <!-- Date & Gender -->
+  <div class="form-group">
+    <label for="dob">Date of Birth:</label>
+    <input id="dob" type="date" formControlName="dob" />
+  </div>
+
+  <div class="form-group">
+    <label>Gender:</label>
+    <label><input type="radio" value="Male" formControlName="gender" /> Male</label>
+    <label><input type="radio" value="Female" formControlName="gender" /> Female</label>
+  </div>
+
+  <!-- Location -->
+  <!-- Country Dropdown -->
+  <div class="form-group">
+    <label for="country">Country:</label>
+    <select id="country" formControlName="country">
+      <option value="">Select Country</option>
+      <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+    </select>
+  </div>
+
+  <!-- State Dropdown -->
+  <div class="form-group">
+    <label for="state">State:</label>
+    <select id="state" formControlName="state">
+      <option value="">Select State</option>
+      <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+    </select>
+  </div>
+
+
+  <!-- Address -->
+  <div class="form-group">
+    <label for="address">Address:</label>
+    <textarea id="address" formControlName="address"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="pincode">Pincode:</label>
+    <input id="pincode" type="number" formControlName="pincode" />
+  </div>
+
+  <!-- Preferences -->
+  <div class="form-group">
+    <label for="color">Favorite Color:</label>
+    <input id="color" type="color" formControlName="color" />
+  </div>
+
+  <div class="form-group">
+    <div formGroupName="hobbies">
+      <label>Hobbies:</label>
+      <label><input type="checkbox" formControlName="reading" /> Reading</label>
+      <label><input type="checkbox" formControlName="traveling" /> Traveling</label>
+      <label><input type="checkbox" formControlName="gaming" /> Gaming</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="profilePic">Profile Picture:</label>
+    <input id="profilePic" type="file" formControlName="profilePic" />
+  </div>
+
+  <div class="form-group">
+    <label for="experience">Experience (Years):</label>
+    <input id="experience" type="number" formControlName="experience" />
+  </div>
+
+  <div class="form-group">
+    <label for="joiningDate">Joining Date:</label>
+    <input id="joiningDate" type="date" formControlName="joiningDate" />
+  </div>
+
+  <div class="form-group">
+    <label for="comments">Comments:</label>
+    <textarea id="comments" formControlName="comments"></textarea>
+  </div>
 
   <button type="submit">Submit</button>
 </form>

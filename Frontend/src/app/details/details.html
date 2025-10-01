@@ -1,5 +1,23 @@
-<div class="details-container">
-  <p>First Name: {{ details.firstName }}</p>
-  <p>Middle Name: {{ details.middleName }}</p>
-  <p>Last Name: {{ details.lastName }}</p>
+<div class="details-container" *ngIf="userData">
+  <h2>Submitted Details</h2>
+
+  <p><strong>Full Name:</strong> {{ userData.fullName }}</p>
+  <p><strong>Email:</strong> {{ userData.email }}</p>
+  <p><strong>Phone:</strong> {{ userData.phone }}</p>
+  <p><strong>Date of Birth:</strong> {{ userData.dob }}</p>
+  <p><strong>Gender:</strong> {{ userData.gender }}</p>
+  <p><strong>Country:</strong> {{ userData.country }}</p>
+  <p><strong>State:</strong> {{ userData.state }}</p>
+  <p><strong>Address:</strong> {{ userData.address }}</p>
+  <p><strong>Pincode:</strong> {{ userData.pincode }}</p>
+  <p><strong>Favorite Color:</strong> <span [style.background]="userData.color" class="color-box"></span></p>
+  <p><strong>Hobbies:</strong> {{ userData.hobbies }}</p>
+  <p><strong>Experience:</strong> {{ userData.experience }} years</p>
+  <p><strong>Joining Date:</strong> {{ userData.joiningDate }}</p>
+  <p><strong>Comments:</strong> {{ userData.comments }}</p>
+
+  <div *ngIf="userData.profilePicUrl">
+    <p><strong>Profile Picture:</strong></p>
+    <img [src]="userData.profilePicUrl" alt="Profile Picture" class="profile-pic" />
+  </div>
 </div>
